@@ -12,7 +12,6 @@ The implementation includes:
 - A recursive evaluator (interpreter)
 - A parser (via Menhir)
 - A lexer (via OCamllex)
-- A simple REPL-style interface
 
 ---
 
