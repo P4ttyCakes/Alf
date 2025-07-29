@@ -16,7 +16,7 @@ The implementation includes:
 
 ---
 
-## 🚀 Usage
+## Usage
 
 You can run the interpreter from the command line using `dune`. Pipe an expression to the executable to see the result.
 
@@ -24,7 +24,6 @@ You can run the interpreter from the command line using `dune`. Pipe an expressi
 ```sh
 echo "let x = 10 in (fun y -> y * 2) (x + 5)" | dune exec ./main.exe
 ```
-
 This will output:
 ```
 Result: 30
@@ -32,7 +31,7 @@ Result: 30
 
 ---
 
-## 📚 Assignment Background
+## Assignment Background
 
 I built this apart of Cyrus Omar's Future of Programming Lab. It is  based on the specifications provided in [Assignment 3] of [EECS 490 - Programming Languages] coursework at the University of Michigan.
 
@@ -42,7 +41,7 @@ The assignment focused on two styles of semantics:
 
 ---
 
-## 🔍 Language Features
+##  Language Features
 
 ### Syntax
 
