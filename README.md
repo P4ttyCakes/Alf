@@ -4,8 +4,8 @@ This project is a simple interpreter for the **Arithmetic Language with Function
 - Integer arithmetic
 - Unary negation
 - `let`-bindings
-- First-class anonymous functions
-- Function application with full **currying** support
+- Anonymous functions
+- Function application with **currying** 
 
 The implementation includes:
 - An abstract syntax tree (AST)
