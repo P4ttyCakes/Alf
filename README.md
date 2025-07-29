@@ -62,8 +62,4 @@ The assignment focused on two styles of semantics:
 - **E-Fun**: `fun x -> e` creates a closure with the current environment.
 - **E-App**: `e1 e2` evaluates `e1` to a closure and `e2` to a value, then applies the closure.
 
----
-
-## Project Structure
-
 ```
