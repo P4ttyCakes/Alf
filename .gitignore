@@ -1,1 +1,33 @@
-_build/ 
+# OCaml
+*.annot
+*.cmi
+*.cmo
+*.cmt
+*.cmx
+*.o
+*.s
+*.a
+*.cmxs
+*.so
+# TODO: find out what this is...
+_doc
+# Merlin
+.merlin
+# Dune
+_build
+# ocp-indent
+.ocp-indent
+# user-ocaml-toplevel-ocaml-4.13.1
+.ocamlinit
+.ocaml-toplevel-history
+*.so
+*.exe
+*.d.byte
+*.so.owner
+*.obj
+*.cmti
+*.byte
+*.native
+*.dynlink
+*.lib
+alf 

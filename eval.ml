@@ -2,11 +2,15 @@ open Ast
 
 type value =
   | Int of int
+  | Bool of bool
   | Closure of string * expr * env
 and env = (string * value) list
 
 let rec eval_expr (env : env) (e : expr) : value =
   match e with
+(* Boolean literals evaluate to themselves *)
+  |BoolLit b ->
+    Bool b
 
   (* Numlits literals evaluate to themselves *)
   | NumLit n ->
@@ -17,6 +21,12 @@ let rec eval_expr (env : env) (e : expr) : value =
       List.assoc x env
 
   (* Unary negation *)
+  | UnOp (OpNot, e1) ->
+    let v1 = eval_expr env e1 in
+    (match v1 with
+    | Bool b -> Bool (not b)
+    | _ -> failwith "Unary not on non-boolean")
+
   | UnOp (OpNeg, e1) ->
       let v1 = eval_expr env e1 in
       (match v1 with
@@ -31,7 +41,16 @@ let rec eval_expr (env : env) (e : expr) : value =
        | (OpPlus, Int n1, Int n2) -> Int (n1 + n2)
        | (OpMinus, Int n1, Int n2) -> Int (n1 - n2)
        | (OpTimes, Int n1, Int n2) -> Int (n1 * n2)
-       | _ -> failwith "Binary operation on non-integers")
+       | (OpAnd, Bool b1 , Bool b2) -> Bool (b1 && b2)
+       | (OpOr, Bool b1 , Bool b2) -> Bool (b1 || b2)
+
+       | (OpGt, Int n1, Int n2) -> Bool (n1 > n2)
+       | (OpLt, Int n1, Int n2) -> Bool (n1 < n2)
+       | (OpEq, Int n1, Int n2) -> Bool (n1 = n2)
+       | (OpEq, Bool b1, Bool b2) -> Bool (b1 = b2)
+    
+         (* Handle other cases *)
+       | _ -> failwith "Binary operation on non-integers or booleans")
 
   (* Let-binding: let x = e1 in e2 *)
   | Let (x, e1, e2) ->

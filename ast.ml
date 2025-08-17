@@ -1,11 +1,20 @@
-type unOp = OpNeg
+type unOp = 
+  | OpNeg 
+  | OpNot (* For Booleans*)
 
 type binOp =
   | OpPlus
   | OpMinus
   | OpTimes
+  | OpAnd
+  | OpOr
+  | OpEq (*equality*)
+  | OpGt (*Greater Than*)
+  | OpLt (*Less Than*)
+
 
 type expr =
+  | BoolLit of bool
   | NumLit of int
   | Var of string
   | UnOp of unOp * expr

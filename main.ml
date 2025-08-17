@@ -4,4 +4,5 @@ let () =
   let result = Eval.eval_expr [] expr in
   match result with
   | Int n -> Printf.printf "Result: %d\n" n
+  | Bool b -> Printf.printf "Result: %b\n" b
   | Closure _ -> print_endline "<function>"
