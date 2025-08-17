@@ -40,11 +40,11 @@ rule read_token = parse
   | ')'                    { RPAREN }
 
   (* Identifiers *)
-  | ['a'-'z'] ['a'-'z' '0'-'9']* as id { IDENT id }
+  | ['a'-'z' 'A'-'Z'] ['a'-'z' 'A'-'Z' '0'-'9']* as id { IDENT id }
+
 
   (* End of file *)
   | eof                    { EOF }
 
-
-  | _ as c { failwith ("Unexpected character: " ^ String.make 1 c) }
-
+  (* Catch-all for bad characters *)
+  | _ as c                 { failwith ("Unexpected character: " ^ String.make 1 c) }
